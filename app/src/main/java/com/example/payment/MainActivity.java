@@ -59,15 +59,18 @@ public class MainActivity extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String mes = "";
-                if (mBankCardChkBx.isChecked()) {
-                    mes = getString(R.string.bankCardChkBx);
-                }else if (mCashAddressChkBx.isChecked()){
-                    mes = getString(R.string.cashAddressChkBx);
-                }else if(mMobilePhoneChkBx.isChecked()){
-                    mes = getString(R.string.mobilePhoneChkBx);
+
+                if (!mInputMoney.getText().toString().equals("")) {
+                    String mes = "";
+                    if (mBankCardChkBx.isChecked()) {
+                        mes = getString(R.string.bankCardChkBx);
+                    } else if (mCashAddressChkBx.isChecked()) {
+                        mes = getString(R.string.cashAddressChkBx);
+                    } else if (mMobilePhoneChkBx.isChecked()) {
+                        mes = getString(R.string.mobilePhoneChkBx);
+                    }
+                    Toast.makeText(MainActivity.this, getString(R.string.message) + " " + mes, Toast.LENGTH_LONG).show();
                 }
-                Toast.makeText(MainActivity.this, getString(R.string.message) + " " + mes, Toast.LENGTH_LONG).show();
             }
         });
 
